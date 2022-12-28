@@ -458,3 +458,7 @@ p.yellow-text{
 .table-container {
   margin: 20px auto;
 }
+
+.yellow-button{
+  background-color: #e6d32a !important;
+}

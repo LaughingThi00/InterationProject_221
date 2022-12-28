@@ -20,7 +20,6 @@ const AdminMain = () => {
   }=useContext(AuthContext);
 
   if(actor!=="ADMIN") {
-    console.log("Bi day tu AdminMain:",actor)
     return (<Navigate replace to='/' />)}
 
   return (
@@ -28,25 +27,20 @@ const AdminMain = () => {
 
       <div className="HeaderBar">
         <ul>
-          <li>
-            <Link to="/admin">
-              <button>Logo</button>
-            </Link>
-          </li>
+       
           <li>
             <Link to="/admin/dashboard">
-              <button>Dashboard</button>
+              <button className={window.location.pathname==='/admin/dashboard'? "yellow-button butt": "butt"}>Dashboard</button>
             </Link>
-            
           </li>
-          <li>
+          <li >
             <Link to="/admin/manage">
-              <button>Quản lý</button>
+              <button className={window.location.pathname==='/admin/manage'? "yellow-button butt": "butt"}>Quản lý</button>
             </Link>
           </li>
           <li>
             <Link to="/admin/account">
-              <button>Tài khoản</button>
+              <button className={window.location.pathname==='/admin/account'? "yellow-button": "butt"}>Tài khoản</button>
             </Link>
           </li>
           <li>

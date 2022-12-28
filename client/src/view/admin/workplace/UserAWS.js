@@ -156,7 +156,7 @@ export function UserDetail({ detail }) {
                 <div>
                   <h6>Loại:</h6>
                   <p>
-                    {account.id.slice(0, 3) === "ADM"
+                    {account? (account.id.slice(0, 3) === "ADM"
                       ? "QUẢN TRỊ VIÊN"
                       : account.id.slice(0, 3) === "INS"
                       ? "GIÁM THỊ"
@@ -164,7 +164,7 @@ export function UserDetail({ detail }) {
                       ? "GIÁO VIÊN"
                       : account.id.slice(0, 3) === "STU"
                       ? "HỌC SINH"
-                      : "Không xác định"}
+                      : "Không xác định"):"Không có"}
                   </p>
                 </div>
 
