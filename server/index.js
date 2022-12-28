@@ -1,4 +1,3 @@
-require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
@@ -13,6 +12,7 @@ const classRouter = require('./routes/class')
 const roomRouter = require('./routes/room')
 const scheduleRouter = require('./routes/schedule')
 const attendanceRouter = require('./routes/attendance')
+require('dotenv').config()
 
 const connectDB = async () => {
 	try {
