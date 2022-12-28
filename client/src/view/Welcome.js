@@ -95,9 +95,7 @@ function LoginButton() {
 }
 
 const Welcome = () => {
-  const handleFakeLogin = (e) => {
-    console.log("Dang nhap");
-  };
+
 
   return (
     <>
@@ -121,18 +119,7 @@ const Welcome = () => {
         </div>
 
         <div className="ConText">
-          <Link to="/admin/dashboard">
-            <button onClick={handleFakeLogin}>Login as Admin</button>
-          </Link>
-          <Link to="/inspector/home">
-            <button onClick={handleFakeLogin}>Login as Inspector</button>
-          </Link>
-          <Link to="/teacher/home">
-            <button onClick={handleFakeLogin}>Login as Teacher</button>
-          </Link>
-          <Link to="/student/home">
-            <button onClick={handleFakeLogin}>Login as Student</button>
-          </Link>
+          
           <h1>1.Some introduction about us</h1>
           <h1>2.Main functions</h1>
           <h1>3.Main context</h1>
