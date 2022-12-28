@@ -1,0 +1,30 @@
+###
+GET http://localhost:5000/api/room
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2E5MTFiMTM1ZTUxYjIwOWM4ZTkwYjAiLCJpYXQiOjE2NzIwMjQ0OTd9.7vtbcowTd_KjX-UMh80iSgGEibuaD_QMo7rUZ29ECCY
+
+###
+POST http://localhost:5000/api/room
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2E5MTFiMTM1ZTUxYjIwOWM4ZTkwYjAiLCJpYXQiOjE2NzIwMjQ0OTd9.7vtbcowTd_KjX-UMh80iSgGEibuaD_QMo7rUZ29ECCY
+
+{
+  "id":"ROM00001",
+  "name":"Phong 612",
+  "type":null,
+  "state":null,
+  "description":null
+}
+
+###
+PUT http://localhost:5000/api/room/ROM00001
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2E5MTFiMTM1ZTUxYjIwOWM4ZTkwYjAiLCJpYXQiOjE2NzIwMjQ0OTd9.7vtbcowTd_KjX-UMh80iSgGEibuaD_QMo7rUZ29ECCY
+
+{
+  "name":"601"
+}
+
+
+###
+DELETE http://localhost:5000/api/room/ROM00001
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2E5MTFiMTM1ZTUxYjIwOWM4ZTkwYjAiLCJpYXQiOjE2NzIwMjQ0OTd9.7vtbcowTd_KjX-UMh80iSgGEibuaD_QMo7rUZ29ECCY

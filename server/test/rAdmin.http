@@ -1,0 +1,35 @@
+###
+GET http://localhost:5000/api/admin
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2E4ZmMxNTNjZTFlNDI2OGNhMDc0MjYiLCJpYXQiOjE2NzIwMTg5NjV9.P_j796h5y9xNlJXxcLlmMOg2Enxdoax1qsEzqOHtZH0
+
+###
+POST http://localhost:5000/api/admin
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2E4ZmMxNTNjZTFlNDI2OGNhMDc0MjYiLCJpYXQiOjE2NzIwMTg5NjV9.P_j796h5y9xNlJXxcLlmMOg2Enxdoax1qsEzqOHtZH0
+
+{
+  "id":"ADM00002",
+  "userId":"63a9a2dd8edc102e3c37e267",
+  "name":"Mark Zugkerberg",
+  "gender":"Nam",
+  "birth":"1947-01",
+  "phone":"0389895377",
+  "email":"minhthiennguyen1509@gmail.com",
+  "description":null
+}
+
+###
+PUT http://localhost:5000/api/admin/ADM1063
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2E5MTFiMTM1ZTUxYjIwOWM4ZTkwYjAiLCJpYXQiOjE2NzIwMjQ0OTd9.7vtbcowTd_KjX-UMh80iSgGEibuaD_QMo7rUZ29ECCY
+
+{
+  "name":"Nguyen Van Doi",
+  "gender":"Nữ"
+  
+}
+
+
+###
+DELETE http://localhost:5000/api/admin/ADM00001
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2E5MTFiMTM1ZTUxYjIwOWM4ZTkwYjAiLCJpYXQiOjE2NzIwMjQ0OTd9.7vtbcowTd_KjX-UMh80iSgGEibuaD_QMo7rUZ29ECCY

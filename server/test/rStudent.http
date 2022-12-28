@@ -1,0 +1,49 @@
+###
+GET http://localhost:5000/api/student
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2E5MTFiMTM1ZTUxYjIwOWM4ZTkwYjAiLCJpYXQiOjE2NzIwMjQ0OTd9.7vtbcowTd_KjX-UMh80iSgGEibuaD_QMo7rUZ29ECCY
+
+###
+POST http://localhost:5000/api/student
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2E5MTFiMTM1ZTUxYjIwOWM4ZTkwYjAiLCJpYXQiOjE2NzIwMjQ0OTd9.7vtbcowTd_KjX-UMh80iSgGEibuaD_QMo7rUZ29ECCY
+
+{
+  "id":"STU00002",
+  "userId":"63a9a3838edc102e3c37e26d",
+  "name":"Mark Zugkerberg",
+  "gender":"Nam",
+  "birth":"1947-01",
+  "phone":"0389895377",
+  "email":"minhthiennguyen1509@gmail.com",
+  "description":null,
+  "class_":"CLS0001"
+}
+
+###
+PUT http://localhost:5000/api/student/update/STU00001
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2E5MTFiMTM1ZTUxYjIwOWM4ZTkwYjAiLCJpYXQiOjE2NzIwMjQ0OTd9.7vtbcowTd_KjX-UMh80iSgGEibuaD_QMo7rUZ29ECCY
+
+{
+  "class_":"CLS00001"
+}
+
+
+###
+PUT http://localhost:5000/api/student/removeclass/STU00001
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2E5MTFiMTM1ZTUxYjIwOWM4ZTkwYjAiLCJpYXQiOjE2NzIwMjQ0OTd9.7vtbcowTd_KjX-UMh80iSgGEibuaD_QMo7rUZ29ECCY
+
+
+###
+PUT http://localhost:5000/api/student/removeclass
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2E5MTFiMTM1ZTUxYjIwOWM4ZTkwYjAiLCJpYXQiOjE2NzIwMjQ0OTd9.7vtbcowTd_KjX-UMh80iSgGEibuaD_QMo7rUZ29ECCY
+
+{
+    "class_id":"CLS00001"
+}
+
+###
+DELETE http://localhost:5000/api/student/STU00001
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2E5MTFiMTM1ZTUxYjIwOWM4ZTkwYjAiLCJpYXQiOjE2NzIwMjQ0OTd9.7vtbcowTd_KjX-UMh80iSgGEibuaD_QMo7rUZ29ECCY

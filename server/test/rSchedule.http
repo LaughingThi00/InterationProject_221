@@ -1,0 +1,28 @@
+###
+GET http://localhost:5000/api/schedule
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2E5MTFiMTM1ZTUxYjIwOWM4ZTkwYjAiLCJpYXQiOjE2NzIwMjQ0OTd9.7vtbcowTd_KjX-UMh80iSgGEibuaD_QMo7rUZ29ECCY
+
+###
+POST http://localhost:5000/api/schedule
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2E5MTFiMTM1ZTUxYjIwOWM4ZTkwYjAiLCJpYXQiOjE2NzIwMjQ0OTd9.7vtbcowTd_KjX-UMh80iSgGEibuaD_QMo7rUZ29ECCY
+
+{
+  "id":"SCH00003",
+  "date":"11/13/2022"
+
+}
+
+###
+PUT http://localhost:5000/api/schedule/SCH00003
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2E5MTFiMTM1ZTUxYjIwOWM4ZTkwYjAiLCJpYXQiOjE2NzIwMjQ0OTd9.7vtbcowTd_KjX-UMh80iSgGEibuaD_QMo7rUZ29ECCY
+
+{
+  "date":"11/14/2022"
+}
+
+
+###
+DELETE http://localhost:5000/api/schedule/SCH00003
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2E5MTFiMTM1ZTUxYjIwOWM4ZTkwYjAiLCJpYXQiOjE2NzIwMjQ0OTd9.7vtbcowTd_KjX-UMh80iSgGEibuaD_QMo7rUZ29ECCY

@@ -1,0 +1,460 @@
+.App {
+  background-color: #7d9ddd;
+  padding-bottom: 20px;
+}
+
+button {
+  margin: 10px;
+  padding: 10px;
+  font-weight: 700;
+  background-color: aqua;
+}
+
+.HeaderBar {
+  /* background-color: #D9D9D9 ; */
+  position: relative;
+  background: url(./view/img/welcome.png) no-repeat center/cover;
+  padding-top: 20%;
+  width: 100%;
+}
+
+.HeaderBar ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.HeaderBar ul li {
+  display: inline-block;
+}
+.HeaderBar ul li button {
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(138, 90, 234);
+  color: #fff;
+}
+.HeaderBar ul li button:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+h1 {
+  color: #7c795d;
+  font-family: "Trocchi", serif;
+  font-size: 45px;
+  font-weight: normal;
+  line-height: 48px;
+  text-align: center;
+  margin: 50px 0;
+}
+h2 {
+  color: #7c795d;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 32px;
+  margin: 10px 0 10px 70px;
+}
+.Icon{
+  position: absolute;
+  top:-20px;
+left:20px;
+width: 100px;
+}
+
+.IntroText>h1 {
+  color: #caded9;
+  font-family: "Trocchi", serif;
+  font-size: 60px;
+  font-weight: bolder;
+  line-height: 48px;
+  text-align: center;
+  text-shadow: 1px 1px;
+  margin: 50px 0;
+}
+
+.btn-primary {
+  margin: 0 10px;
+}
+
+.table * {
+  vertical-align: middle;
+}
+
+.table-container {
+  margin: auto;
+  padding: 10px;
+  width: 90%;
+  border: rgb(27, 46, 42) solid 1.5px;
+  color: aliceblue;
+  border-radius: 20px;
+  margin: auto;
+}
+.table-container * {
+}
+
+.table-container thead > tr,
+/* .table-container thead {
+  width: calc(100% - 1em) !important;
+} */
+
+.table-container td > button {
+  margin-left: 0 !important;
+}
+.table-container td {
+  padding: 8px !important;
+}
+.table-container tbody {
+  display: block;
+  width: 100%;
+  min-height: 40vh;
+  max-height: 80vh;
+  overflow-y: scroll;
+}
+
+.table-container td,
+th {
+  padding: 0 50px 0 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.table-container thead {
+  width: calc(100% - 1em);
+}
+
+.table-container thead,
+.table-container tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.modal-content {
+  min-width: 40vw;
+  width: fit-content;
+}
+.student-container {
+  width: 100%;
+  /* border: #000 solid 2px;
+  border-radius: 20px; */
+  height: 30vh;
+  overflow-y: scroll;
+}
+.accordion-button {
+  margin: auto;
+}
+/* datalist, input{
+  color:rgb(85, 0, 255);
+  background-color: red;
+  display: block;
+  max-width: 1000% !important;
+} */
+/* 
+input[name='studentList']{
+  border: 2px solid orange;
+  border-radius: 10px 10px 10px 10px;
+  font-size: 18px;
+  padding: 5px;
+  height: 35px;
+  width: 350px;
+} */
+
+.UpdateClassDetail-Modal .modal-content {
+  border-radius: 10px;
+  min-height: 90vh;
+}
+
+.accordion-body button {
+  margin-left: 0 !important;
+}
+
+h2.accordion-header{
+  margin:0;
+}
+
+.accordion-item h6 + .accordion-item p {
+  display: inline-block;
+}
+
+td select.form-select {
+  margin: auto 0;
+  width: 80%;
+}
+
+.modal-content {
+  position: absolute;
+  width: 63vw;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal-body {
+  max-height: 80vh;
+  min-height: 60vh;
+  overflow-y: scroll;
+}
+
+.editors_item {
+  width: 200px;
+  height: 30px;
+  display: inline-block;
+  margin: 10px;
+  border-radius: 10px;
+  border: #000 solid 2px;
+  vertical-align: middle;
+}
+
+.editors_item * {
+  display: inline-block;
+  vertical-align: middle;
+  height: 26px;
+  margin-right: 0;
+  /* vertical-align: middle; */
+}
+
+.editors_item .editors_item_content {
+  width: 130px;
+  padding-left: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.editors_item i {
+  width: 50px;
+  font-size: larger;
+  text-align: right;
+  /* line-height: 28px; */
+  align-self: baseline;
+  cursor: pointer;
+  box-sizing: content-box;
+  position: relative;
+  top: 2px;
+}
+
+.editors_item i::before {
+  /* box-sizing: none; */
+}
+
+p {
+  margin: 0;
+  display: inline-block;
+  width: fit-content;
+}
+h6 {
+  margin-top: 20px;
+  margin-right: 5px;
+  display: inline-block;
+  width: fit-content;
+}
+
+div.redstar {
+  color: red;
+  display: inline-block;
+  margin: 0 2px 0 0;
+  padding: 0;
+}
+
+.form-control.numFormControl {
+  width: 60px;
+}
+
+/* .form-control.TextAreaFormControl{
+  height: 300px;
+} */
+
+textarea.form-control {
+  height: 300px;
+}
+
+.table-attendance tr {
+  border-radius: 10px;
+  margin-top: 2px;
+}
+
+tr.LATED {
+  background-color: darkorange;
+  color: black;
+}
+
+tr.PRESENT {
+  background-color: aquamarine;
+  color: black;
+}
+
+tr.SOONLEAVED {
+  background-color: burlywood;
+  color: black;
+}
+
+tr.A-ABSENTED {
+  background-color: crimson;
+  color: black;
+}
+
+tr.B-ABSENTED {
+  background-color: darkred;
+  color: black;
+}
+
+tr.UNCHECKED {
+  background-color: rgb(190, 190, 190);
+  color: black;
+}
+
+tr.ALTER_TEACH {
+  background-color: deeppink;
+  color: black;
+}
+
+tr.ALTER_INSPECT {
+  background-color: dodgerblue;
+  color: black;
+}
+
+tr.PRECHECK {
+  background-color: darkmagenta;
+  color: black;
+}
+
+Button {
+  min-width: 120px;
+}
+
+.InspectorClass-Modal .modal-content {
+  width: 90vw;
+  height: 90vh;
+}
+
+.InspectorClass-Modal .modal-content .modal-header {
+  justify-content: space-evenly;
+}
+
+.GroupButonInspectorClass {
+  display: flex;
+  justify-content: space-evenly;
+  width: 1000px;
+}
+
+.GroupButonInspectorClass Button {
+  width: 100px;
+  margin: 0;
+  height: 60px;
+  font-weight: 500;
+}
+
+div.modal-footer {
+  justify-content: space-around;
+}
+
+div.red-text {
+  margin: 0;
+  padding: 0;
+  color: red;
+}
+div.green-text {
+  margin: 0;
+  padding: 0;
+  color: green;
+}
+div.yellow-text{
+  margin: 0;
+  padding: 0;
+  color: #F0E68C;
+}
+
+p.red-text {
+  margin: 20px 10px;
+  padding: 0;
+  color: red;
+}
+p.green-text {
+  margin: 20px 10px;
+  padding: 0;
+  color: green;
+}
+p.yellow-text{
+  margin: 20px 10px;
+  padding: 0;
+  color: #F0E68C;
+}
+
+.DivAccount {
+  margin: 50px auto;
+  padding: 20px;
+  color: #000;
+  background-color: #fff;
+  border-radius: 10px;
+  border: #000 solid 2px;
+
+  width: 90vw;
+}
+
+/*-----------------------WELCOME-----------------------------------------*/
+.Welcome-Header {
+  height: 70px;
+  background-color: #d9d9d9;
+  position: fixed;
+  width: 100%;
+  display: flex;
+  z-index: 2;
+  justify-content: flex-end;
+}
+
+.Welcome-Header button {
+  background-color: #7d9ddd;
+  padding: 10px;
+  margin: 10px 50px 10px 0;
+  color: white;
+  border-radius: 40px;
+  cursor: pointer;
+  border: none;
+}
+
+.Welcome-Header button:hover {
+  opacity: 0.5;
+}
+
+.Welcome-Content {
+  height: 1500px;
+  position: relative;
+  background-color: #7d9ddd;
+}
+.Welcome-Content * {
+  opacity: 0.8;
+}
+
+.Welcome-Content .MainImg {
+  position: absolute;
+  margin-top: 70px;
+  width: 100%;
+}
+.Welcome-Content .IntroText {
+  position: absolute;
+  width: 50%;
+  top: 200px;
+  left: 100px;
+  color: #fff;
+  text-shadow: #d9d9d9 1px 1px;
+}
+.Welcome-Content .ConText {
+  top: 800px;
+  left: 100px;
+  color: #fff;
+  opacity: 1;
+  position: absolute;
+}
+
+.content {
+  width: 95vw;
+  min-height: 500px;
+  background-color: #fff;
+  margin: 20px auto;
+  border-radius: 10px;
+  padding: 50px 10px;
+}
+
+.table-container {
+  margin: 20px auto;
+}

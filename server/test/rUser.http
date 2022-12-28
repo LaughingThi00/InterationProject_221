@@ -1,0 +1,41 @@
+
+###
+GET http://localhost:5000/api/user
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2E5MTAxYzEwMjk1ZDE2ODAwYTA0OGEiLCJpYXQiOjE2NzIwMjQwOTJ9.RgMe9lzpjeNk-hsYDr7zSl0lbQm9_joDtuxucuurzf0
+###
+POST http://localhost:5000/api/user
+Content-Type: application/json
+
+{
+  "username": "USR000008",
+  "password": "8s",
+  "recovery_mail":null,
+  "active_day":null
+}
+
+
+###
+PUT http://localhost:5000/api/user/63a9101c10295d16800a048a
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2E5MTAxYzEwMjk1ZDE2ODAwYTA0OGEiLCJpYXQiOjE2NzIwMjQwOTJ9.RgMe9lzpjeNk-hsYDr7zSl0lbQm9_joDtuxucuurzf0
+# {
+#   "id":"ADM00001",
+#   "username":"useradmin1",
+#   "name":"Mark",
+#   "gender":"Nam",
+#   "birth":"wefwefwe",
+#   "phone":"wefwefwe",
+#   "email":"wefwefwe",
+#   "description":""
+# }
+
+{
+   "username": null,
+  "password": "user1",
+  "recovery_mail":"hihi",
+  "active_day":null
+}
+
+###
+DELETE http://localhost:5000/api/user/63a9101c10295d16800a048a
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2E5MTAxYzEwMjk1ZDE2ODAwYTA0OGEiLCJpYXQiOjE2NzIwMjQwOTJ9.RgMe9lzpjeNk-hsYDr7zSl0lbQm9_joDtuxucuurzf0

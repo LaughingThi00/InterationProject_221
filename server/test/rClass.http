@@ -1,0 +1,43 @@
+###
+GET http://localhost:5000/api/class
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2E5MTFiMTM1ZTUxYjIwOWM4ZTkwYjAiLCJpYXQiOjE2NzIwMjQ0OTd9.7vtbcowTd_KjX-UMh80iSgGEibuaD_QMo7rUZ29ECCY
+
+###
+POST http://localhost:5000/api/class
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2E5MTFiMTM1ZTUxYjIwOWM4ZTkwYjAiLCJpYXQiOjE2NzIwMjQ0OTd9.7vtbcowTd_KjX-UMh80iSgGEibuaD_QMo7rUZ29ECCY
+
+{
+  "id":"CLS00003",
+  "name":"Siu Ngoan",
+  "teacher":null,
+  "inspector":null,
+  "num":null,
+  "description":null
+}
+
+###
+PUT http://localhost:5000/api/class/update/CLS00003
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2E5MTFiMTM1ZTUxYjIwOWM4ZTkwYjAiLCJpYXQiOjE2NzIwMjQ0OTd9.7vtbcowTd_KjX-UMh80iSgGEibuaD_QMo7rUZ29ECCY
+
+{
+  "name":"Siu Quậy"
+}
+
+
+###
+PUT http://localhost:5000/api/class/increase/CLS00003
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2E5MTFiMTM1ZTUxYjIwOWM4ZTkwYjAiLCJpYXQiOjE2NzIwMjQ0OTd9.7vtbcowTd_KjX-UMh80iSgGEibuaD_QMo7rUZ29ECCY
+
+
+###
+PUT http://localhost:5000/api/class/decrease/CLS00003
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2E5MTFiMTM1ZTUxYjIwOWM4ZTkwYjAiLCJpYXQiOjE2NzIwMjQ0OTd9.7vtbcowTd_KjX-UMh80iSgGEibuaD_QMo7rUZ29ECCY
+
+
+###
+DELETE http://localhost:5000/api/class/CLS00003
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2E5MTFiMTM1ZTUxYjIwOWM4ZTkwYjAiLCJpYXQiOjE2NzIwMjQ0OTd9.7vtbcowTd_KjX-UMh80iSgGEibuaD_QMo7rUZ29ECCY
