@@ -6,7 +6,7 @@ import { LogOutButton } from "./../admin/AdminMain";
 const StudentMain = () => {
   const { actor,account } = useContext(AuthContext);
 
-  if (actor !== "STUDENT") return <Navigate replace to="/" />;
+  if (actor !== "STUDENT") return <Navigate  to="/" />;
 
   return (
     <div>

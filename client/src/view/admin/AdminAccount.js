@@ -10,7 +10,7 @@ const AdminAccount = () => {
 
   const admin = AdminList.find((i) => i.id === account.id);
 
-  if (actor !== "ADMIN") return <Navigate replace to="/" />;
+  if (actor !== "ADMIN") return <Navigate  to="/" />;
 
   return (
     <>

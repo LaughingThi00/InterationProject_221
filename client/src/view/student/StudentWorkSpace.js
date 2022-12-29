@@ -114,7 +114,7 @@ const StudentWorkSpace = () => {
   let ssnow=100*(Statistic.present+Statistic.lated)/Statistic.total
 
 
-  if(actor!=="STUDENT") return (<Navigate replace to='/' />)
+  if(actor!=="STUDENT") return (<Navigate  to='/' />)
 
   return (
     <>

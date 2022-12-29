@@ -14,7 +14,7 @@ const InspectorAccount = () => {
   const { InspectorList, ClassList } = useContext(DataContext);
   const inspector = InspectorList.find((i) => i.id === account.id);
 
-  if(actor!=="INSPECTOR") return (<Navigate replace to='/' />)
+  if(actor!=="INSPECTOR") return (<Navigate  to='/' />)
 
 return (
 <>

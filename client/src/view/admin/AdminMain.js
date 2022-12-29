@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink, Navigate, Outlet } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "./../../context/AuthContext";
+import { MessageToast } from "../../component/MessageToast";
 
 export const LogOutButton = () => {
   const { logoutUser } = useContext(AuthContext);
@@ -21,14 +22,14 @@ const AdminMain = () => {
   const { actor,account } = useContext(AuthContext);
 
   if (actor !== "ADMIN") {
-    return <Navigate replace to="/" />;
+    return <Navigate  to="/" />;
   }
 
- 
 
   return (
     <div>
       <div className="HeaderBar">
+
         {account&&<div className="header-welcome-text">Xin chào {account.name}!</div>}
         <ul>
           <li>

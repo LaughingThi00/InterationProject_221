@@ -211,7 +211,7 @@ export function ClassDetailButton({ detail }) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   
-  const {InspectorList,TeacherList}=useContext(DataContext)
+  const {InspectorList,TeacherList,StudentList}=useContext(DataContext)
   return (
     <>
       <Button variant="info" onClick={handleShow}>
@@ -267,11 +267,7 @@ export function ClassDetailButton({ detail }) {
             <Accordion.Item eventKey="2">
               <Accordion.Header>Thời khóa biểu</Accordion.Header>
               <Accordion.Body>
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                commodo consequat. Duis aute irure dolor in reprehenderit in
-                voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa
-                qui officia deserunt mollit anim id est laborum.
+              
               </Accordion.Body>
             </Accordion.Item>
           </Accordion>
@@ -390,7 +386,7 @@ export function UpdateClassDetail({ detail }) {
                   </Form.Group>
 
                   <Button variant="primary" type="submit">
-                    Cập nhật nó
+                    Cập nhật
                   </Button>
                 </Form>
               </Accordion.Body>

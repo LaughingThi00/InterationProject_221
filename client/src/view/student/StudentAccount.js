@@ -12,7 +12,7 @@ const StudentAccount = () => {
   }=useContext(AuthContext);
   const student = StudentList.find((i) => i.id === account.id);
 
-  if(actor!=="STUDENT") return (<Navigate replace to='/' />)
+  if(actor!=="STUDENT") return (<Navigate  to='/' />)
 
 return (
 <>

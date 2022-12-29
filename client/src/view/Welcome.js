@@ -32,13 +32,13 @@ function LoginButton() {
   };
   switch (actor) {
         case "STUDENT":
-          return <Navigate replace to='/student/home' />
+          return <Navigate  to='/student/home' />
         case "TEACHER":
-          return <Navigate replace to='/teacher/home' />
+          return <Navigate  to='/teacher/home' />
         case "INSPECTOR":
-          return <Navigate replace to='/inspector/home' />
+          return <Navigate  to='/inspector/home' />
         case "ADMIN":
-          return (<Navigate replace to='/admin/dashboard' />)
+          return (<Navigate  to='/admin/dashboard' />)
 
         default:
        

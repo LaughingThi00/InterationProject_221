@@ -103,7 +103,7 @@ const TeacherWorkSpace = () => {
   });
   let ssnow=100*(Statistic.present+Statistic.lated)/Statistic.total
   
-  if(actor!=="TEACHER") return (<Navigate replace to='/' />)
+  if(actor!=="TEACHER") return (<Navigate  to='/' />)
 
   return (
     <>

@@ -27,7 +27,7 @@ export default function InspectorDashBoard() {
   useState(() => {
     setScheduleNow([]);
   }, [account]);
-  if(actor!=="INSPECTOR") return (<Navigate replace to='/' />)
+  if(actor!=="INSPECTOR") return (<Navigate  to='/' />)
 
   return (
     <>

@@ -16,8 +16,8 @@ export function UserAWS() {
   };
   
   const [list, setList] = useState(UserList);
+  useEffect(()=>{setList(UserList)},[UserList])
   const [ActorFilter, setActorFilter] = useState(null);
-  
 
   const sortByTimeLastest = () => {
     setList([
@@ -162,13 +162,13 @@ export function UserAWS() {
                     <option key="1" value="ADMIN">
                       Quản trị viên
                     </option>
-                    <option key="1" value="INSPECTOR">
+                    <option key="2" value="INSPECTOR">
                       Giám thị
                     </option>
-                    <option key="1" value="TEACHER">
+                    <option key="3" value="TEACHER">
                       Giáo viên
                     </option>
-                    <option key="1" value="STUDENT">
+                    <option key="4" value="STUDENT">
                     Học viên
                     </option>
                   

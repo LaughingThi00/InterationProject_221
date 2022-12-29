@@ -10,7 +10,7 @@ const TeacherAccount = () => {
 
   const teacher = TeacherList.find((i) => i.id === account.id);
 
-  if (actor !== "TEACHER") return <Navigate replace to="/" />;
+  if (actor !== "TEACHER") return <Navigate  to="/" />;
 
   return (
     <>

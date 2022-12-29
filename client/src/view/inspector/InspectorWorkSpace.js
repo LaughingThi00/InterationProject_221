@@ -102,7 +102,7 @@ const InspectorWorkSpace = () => {
       }
   });
   let ssnow=100*(Statistic.present+Statistic.lated)/Statistic.total
-  if(actor!=="INSPECTOR") return (<Navigate replace to='/' />)
+  if(actor!=="INSPECTOR") return (<Navigate  to='/' />)
 
   return (
     <>

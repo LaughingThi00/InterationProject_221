@@ -22,7 +22,7 @@ const AdminWorkSpace = () => {
   if(actor!=="ADMIN") {
     console.log("Bi day tu AdminWorkSpace:",actor)
 
-    return (<Navigate replace to='/' />)
+    return (<Navigate  to='/' />)
   }
   return (
     <>

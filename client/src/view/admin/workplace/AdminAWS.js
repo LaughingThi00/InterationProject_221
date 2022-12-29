@@ -13,6 +13,7 @@ export function AdminAWS() {
 
   return (
     <>
+
       <div className="table-fixed table-container">
         <table className="table table-striped">
           <thead>
@@ -303,24 +304,7 @@ export function AdminDetail({ detail }) {
                   </p>
                 </div>
 
-                <div>
-                  <h6>Danh sách lớp chủ nhiệm:</h6>
-                  {ClassList.map((item) => {
-                    return (
-                      item.admin===detail&&<div className="editors_item" key={item}>
-                        <div className="editors_item_content">
-                          {item.name}
-                        </div>
-
-                        <i
-                          id={item}
-                          onClick={handleDeleteOneTeachedClass}
-                          className="fa-solid fa-delete-left"
-                        ></i>
-                      </div>
-                    );
-                  })}
-                </div>
+              
                 <UpdateAdmin detail={detail} />
               </Accordion.Body>
             </Accordion.Item>

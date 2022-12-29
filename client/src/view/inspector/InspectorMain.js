@@ -10,7 +10,7 @@ const InspectorMain = () => {
   const {
     actor,account
   }=useContext(AuthContext);
-  if(actor!=="INSPECTOR") return (<Navigate replace to='/' />)
+  if(actor!=="INSPECTOR") return (<Navigate  to='/' />)
 
   return (
     <div>

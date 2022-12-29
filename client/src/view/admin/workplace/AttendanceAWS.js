@@ -34,6 +34,7 @@ export function AttendanceTable() {
   const [list, setList] = useState(AttendanceList);
   const [ClassFilter,setClassFilter]=useState('');
   const [TypeFilter,setTypeFilter]=useState('');
+  useEffect(()=>{setList(AttendanceList)},[AttendanceList])
 
   const TypeList = [
     { key: "LATED", value: "Vào trễ" },
@@ -129,9 +130,9 @@ setList([
                   </td>
                   <td colSpan="2">
                     {
-        ClassList.find((c) => c.id === ScheduleList.find((s) => s.id === item.id_schedule).class_)
+        ScheduleList.find((s) => s.id === item.id_schedule)?ClassList.find((c) => c.id === ScheduleList.find((s) => s.id === item.id_schedule).class_)
         ? ClassList.find((c) => c.id === ScheduleList.find((s) => s.id === item.id_schedule).class_).name 
-        :"Không dữ liệu"
+        :"Không dữ liệu": "Không xác định"
                     }
                   </td>
                   <td colSpan="2">
@@ -246,11 +247,16 @@ export function AttendanceDetail({ attendance }) {
   const handleShow = () => setShow(true);
   const { ScheduleList, ClassList, AttendanceList,StudentList,InspectorList,TeacherList } = useContext(DataContext);
 
-  const ThisSchedule = ScheduleList.find(
-    (s) => s.id === attendance.id_schedule
-  );
+ 
+  const [ThisSchedule,setThisSchedule] =useState(ScheduleList.find(
+    (s) => s.id === attendance.id_schedule));
+  
+  useEffect(()=>{setThisSchedule(ScheduleList.find(
+    (s) => s.id === attendance.id_schedule))},[ScheduleList])
 
-  const ThisClass = ClassList.find((c) => c.id === ThisSchedule.class_);
+  const [ThisClass,setThisClass] =useState(ThisSchedule?ClassList.find((c) => c.id === ThisSchedule.class_):null);
+  
+  useEffect(()=>{setThisClass(ThisSchedule?ClassList.find((c) => c.id === ThisSchedule.class_):null)},[ScheduleList])
 
   return (
     <>
@@ -286,7 +292,7 @@ export function AttendanceDetail({ attendance }) {
 
                 <div>
                   <h6>Ngày:</h6>
-                  <p> {ThisSchedule.date}</p>
+                  <p> {ThisSchedule?ThisSchedule.date:"Không dữ liệu"}</p>
                 </div>
 
                 <div>

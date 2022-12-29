@@ -48,7 +48,7 @@ const DataContextProvider = ({ children }) => {
         dispatchUserList({ type: "LOAD_ALL", list: process.data.users });
       }
     } catch (error) {
-      alert("Error: ", error.message);
+      console.log("Error: ", error.message);
     }
   };
 
@@ -64,7 +64,7 @@ const DataContextProvider = ({ children }) => {
         return process.data;
       }
     } catch (error) {
-      alert("Error: ", error.message);
+      console.log("Error: ", error.message);
       return false;
     }
   };
@@ -93,7 +93,7 @@ const DataContextProvider = ({ children }) => {
       }
       return process.data;
     } catch (error) {
-      alert("Error: ", error.message);
+      console.log("Error: ", error.message);
       return false;
     }
   };
@@ -113,7 +113,7 @@ const DataContextProvider = ({ children }) => {
         });
       }
     } catch (error) {
-      alert("Error: ", error.message);
+      console.log("Error: ", error.message);
       return false;
     }
 
@@ -130,7 +130,7 @@ const DataContextProvider = ({ children }) => {
         dispatchAdminList({ type: "LOAD_ALL", list: process.data.admins });
       }
     } catch (error) {
-      alert("Error: ", error.message);
+      console.log("Error: ", error.message);
     }
   };
 
@@ -160,7 +160,7 @@ const DataContextProvider = ({ children }) => {
         }
       }
     } catch (error) {
-      alert("Error: ", error.message);
+      console.log("Error: ", error.message);
       return false;
     }
   };
@@ -180,7 +180,7 @@ const DataContextProvider = ({ children }) => {
         });
       }
     } catch (error) {
-      alert("Error: ", error.message);
+      console.log("Error: ", error.message);
       return false;
     }
   };
@@ -200,7 +200,7 @@ const DataContextProvider = ({ children }) => {
           getUsers();
       }
     } catch (error) {
-      alert("Error: ", error.message);
+      console.log("Error: ", error.message);
       console.log("Error: ", error);
 
       return false;
@@ -218,7 +218,7 @@ const DataContextProvider = ({ children }) => {
         });
       }
     } catch (error) {
-      alert("Error: ", error.message);
+      console.log("Error: ", error.message);
     }
   };
 
@@ -248,7 +248,7 @@ const DataContextProvider = ({ children }) => {
         }
       }
     } catch (error) {
-      alert("Error: ", error.message);
+      console.log("Error: ", error.message);
       return false;
     }
   };
@@ -268,7 +268,7 @@ const DataContextProvider = ({ children }) => {
           }
         
       } catch (error) {
-        alert("Error: ", error.message);
+        console.log("Error: ", error.message);
         return false;
       }
   };
@@ -287,7 +287,7 @@ const DataContextProvider = ({ children }) => {
         });
       }
     } catch (error) {
-      alert("Error: ", error.message);
+      console.log("Error: ", error.message);
       return false;
     }
   };
@@ -302,7 +302,7 @@ const DataContextProvider = ({ children }) => {
         dispatchTeacherList({ type: "LOAD_ALL", list: process.data.teachers });
       }
     } catch (error) {
-      alert("Error: ", error.message);
+      console.log("Error: ", error.message);
     }
   };
 
@@ -332,7 +332,7 @@ const DataContextProvider = ({ children }) => {
         }
       }
     } catch (error) {
-      alert("Error: ", error.message);
+      console.log("Error: ", error.message);
       return false;
     }
   };
@@ -353,7 +353,7 @@ const DataContextProvider = ({ children }) => {
           }
         
       } catch (error) {
-        alert("Error: ", error.message);
+        console.log("Error: ", error.message);
         return false;
       }
   };
@@ -372,7 +372,7 @@ const DataContextProvider = ({ children }) => {
         });
       }
     } catch (error) {
-      alert("Error: ", error.message);
+      console.log("Error: ", error.message);
       return false;
     }
   };
@@ -386,7 +386,7 @@ const DataContextProvider = ({ children }) => {
         dispatchStudentList({ type: "LOAD_ALL", list: process.data.students });
       }
     } catch (error) {
-      alert("Error: ", error.message);
+      console.log("Error: ", error.message);
     }
   };
 
@@ -422,7 +422,7 @@ const DataContextProvider = ({ children }) => {
         }
       }
     } catch (error) {
-      alert("Error: ", error.message);
+      console.log("Error: ", error.message);
       return false;
     }
   };
@@ -431,7 +431,7 @@ const DataContextProvider = ({ children }) => {
   const updateStudent = async (data) => {
     const predata = StudentList.find((s) => s.id === data.id)
 if(!predata) {
-  alert(`Student not found!`)
+  console.log(`Student not found!`)
   return;}
     try {
   const process = await axios.put(
@@ -459,7 +459,7 @@ if(!predata) {
   }
 
 } catch (error) {
-  alert("Error: ", error.message);
+  console.log("Error: ", error.message);
 }
    
 
@@ -490,7 +490,7 @@ if(!predata) {
           }
         
       } catch (error) {
-        alert("Error: ", error.message);
+        console.log("Error: ", error.message);
         return false;
       }
   };
@@ -503,7 +503,7 @@ if(!predata) {
         dispatchClassList({ type: "LOAD_ALL", list: process.data.classes });
       }
     } catch (error) {
-      alert("Error: ", error.message);
+      console.log("Error: ", error.message);
     }
   };
 
@@ -528,7 +528,7 @@ if(!predata) {
       }
       }
     } catch (error) {
-      alert("Error: ", error.message);
+      console.log("Error: ", error.message);
     }
 
     ScheduleList.forEach((s) => {
@@ -551,7 +551,7 @@ if(!predata) {
         });
       }
     } catch (error) {
-      alert(error)
+      console.log(error)
     }
    
   };
@@ -567,7 +567,7 @@ if(!predata) {
     });
   }
  } catch (error) {
-  alert(error)
+  console.log(error)
   console.log(error)
  }
   
@@ -606,7 +606,7 @@ if(!predata) {
           });
           }
    } catch (error) {
-    alert(error)
+    console.log(error)
     console.log(error)
    }
    
@@ -631,7 +631,7 @@ if(!predata) {
       //   item: class_id,
       // });
     } catch (error) {
-      alert(error)
+      console.log(error)
       console.log(error)
     }
   
@@ -647,7 +647,7 @@ if(!predata) {
         dispatchRoomList({ type: "LOAD_ALL", list: process.data.rooms });
       }
     } catch (error) {
-      alert(error);
+      console.log(error);
       console.log(error)
     }
   };
@@ -664,7 +664,7 @@ if(!predata) {
         });
       }
     } catch (error) {
-      alert(error)
+      console.log(error)
       console.log(error)
     }
    
@@ -684,7 +684,7 @@ if(!predata) {
         });
       }
     } catch (error) {
-      alert(error);
+      console.log(error);
       console.log(error);
     }
   };
@@ -702,7 +702,7 @@ if(!predata) {
         });
       }
     } catch (error) {
-      alert(error);
+      console.log(error);
       console.log(error);
     }
   };
@@ -716,7 +716,7 @@ if(!predata) {
         dispatchScheduleList({ type: "LOAD_ALL", list: process.data.schedules });
       }
     } catch (error) {
-      alert(error);
+      console.log(error);
       console.log(error)
     }
   };
@@ -733,7 +733,7 @@ if(!predata) {
         });
       }
     } catch (error) {
-      alert(error)
+      console.log(error)
       console.log(error)
     }
    
@@ -753,7 +753,7 @@ if(!predata) {
           });
         }
       } catch (error) {
-        alert(error);
+        console.log(error);
         console.log(error);
       }
     };
@@ -775,9 +775,14 @@ if(!predata) {
             deleteAttendance(a.id);
           }
         });
+
+        AttendanceList.forEach(a=>{
+          if(a.id_schedule===id_schedule) 
+          deleteAttendance(a.id)
+        })
       }
     } catch (error) {
-      alert(error);
+      console.log(error);
       console.log(error);
     }
   };
@@ -792,7 +797,7 @@ if(!predata) {
           dispatchAttendanceList({ type: "LOAD_ALL", list: process.data.attendances });
         }
       } catch (error) {
-        alert(error);
+        console.log(error);
         console.log(error)
       }
     };
@@ -806,7 +811,7 @@ if(!predata) {
           a.id_schedule === attendance.id_schedule
       )
     ) {
-      alert(
+      console.log(
         "Đối tượng đã có điểm danh tại thời khóa biểu này. Vui lòng không tạo lại!"
       );
     } else
@@ -820,7 +825,7 @@ if(!predata) {
             });
           }
         } catch (error) {
-          alert(error)
+          console.log(error)
           console.log(error)
         }
       }
@@ -840,7 +845,6 @@ if(!predata) {
        
       }
     } catch (error) {
-      alert(error);
       console.log(error);
     }
   };
@@ -859,7 +863,6 @@ if(!predata) {
         });
       }
     } catch (error) {
-      alert(error);
       console.log(error);
     }
   };

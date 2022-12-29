@@ -24,7 +24,7 @@ export default function StudentDashBoard() {
   const myclass =isStudentCurrent? ClassList.find((c) => c.id === account.class_):null;
   const [schedulenow, setScheduleNow] = useState([]);
 
-  if(actor!=="STUDENT") return (<Navigate replace to='/' />)
+  if(actor!=="STUDENT") return (<Navigate  to='/' />)
 
   return (
     <>

@@ -308,6 +308,7 @@ export function ScheduleAWS() {
 
   const [list, setList] = useState(ScheduleList);
   const [ClassFilter,setClassFilter]=useState('');
+  useEffect(()=>{setList(ScheduleList)},[ScheduleList])
 
   const sortByTimeLastest = () => {
     setList([
@@ -901,7 +902,6 @@ export function ScheduleDetailButton({ detail }) {
                       })}
                     </tbody>
                   </table>
-                  <AddStudentButton />
                 </div>
               </Accordion.Body>
             </Accordion.Item>

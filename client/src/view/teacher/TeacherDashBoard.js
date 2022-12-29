@@ -26,7 +26,7 @@ export default function TeacherDashBoard() {
   useState(() => {
     setScheduleNow([]);
   }, [account]);
-  if(actor!=="TEACHER") return (<Navigate replace to='/' />)
+  if(actor!=="TEACHER") return (<Navigate  to='/' />)
 
   return (
     <>
