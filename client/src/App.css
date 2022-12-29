@@ -56,14 +56,14 @@ h2 {
   line-height: 32px;
   margin: 10px 0 10px 70px;
 }
-.Icon{
+.Icon {
   position: absolute;
-  top:-20px;
-left:20px;
-width: 100px;
+  top: -20px;
+  left: 20px;
+  width: 100px;
 }
 
-.IntroText>h1 {
+.IntroText > h1 {
   color: #caded9;
   font-family: "Trocchi", serif;
   font-size: 60px;
@@ -111,6 +111,10 @@ width: 100px;
   min-height: 40vh;
   max-height: 80vh;
   overflow-y: scroll;
+}
+
+.table-fixed.table-container tbody{
+  height: 80vh!important;
 }
 
 .table-container td,
@@ -170,8 +174,8 @@ input[name='studentList']{
   margin-left: 0 !important;
 }
 
-h2.accordion-header{
-  margin:0;
+h2.accordion-header {
+  margin: 0;
 }
 
 .accordion-item h6 + .accordion-item p {
@@ -358,10 +362,10 @@ div.green-text {
   padding: 0;
   color: green;
 }
-div.yellow-text{
+div.yellow-text {
   margin: 0;
   padding: 0;
-  color: #F0E68C;
+  color: #f0e68c;
 }
 
 p.red-text {
@@ -374,10 +378,10 @@ p.green-text {
   padding: 0;
   color: green;
 }
-p.yellow-text{
+p.yellow-text {
   margin: 20px 10px;
   padding: 0;
-  color: #F0E68C;
+  color: #f0e68c;
 }
 
 .DivAccount {
@@ -415,6 +419,10 @@ p.yellow-text{
 .Welcome-Header button:hover {
   opacity: 0.5;
 }
+
+/* .active {
+  background-color: #47cc00;
+} */
 
 .Welcome-Content {
   height: 1500px;
@@ -459,6 +467,49 @@ p.yellow-text{
   margin: 20px auto;
 }
 
-.yellow-button{
-  background-color: #e6d32a !important;
+.normalButton {
+  padding: 10px;
+  margin: 10px 0 10px 0;
+  background-color: rgb(138, 90, 234);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+  text-align: center;
 }
+.activeButton {
+  padding: 10px;
+  margin: 10px 0 10px 0;
+  background-color: #e6d32a;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+  text-align: center;
+
+
+}
+.normalButton:hover,
+.activeButton:hover {
+  opacity: 0.8;
+  color: whitesmoke;
+}
+li{
+  min-width: 120px;
+}
+
+.header-welcome-text{
+  font-size: 20px;
+  font-weight: bold;
+  position:absolute;
+  right:50px;
+  top:20px;
+  color:#d9d9d9;
+}
+

@@ -1,55 +1,72 @@
 import React from "react";
-import { Link, Navigate, Outlet } from "react-router-dom";
+import { NavLink, Navigate, Outlet } from "react-router-dom";
 import { useContext } from "react";
-import { AuthContext } from './../../context/AuthContext';
+import { AuthContext } from "./../../context/AuthContext";
 
-export const LogOutButton=()=>{
-  const {
-    logoutUser
-  }=useContext(AuthContext);
+export const LogOutButton = () => {
+  const { logoutUser } = useContext(AuthContext);
 
-  return(
-    <button onClick={()=>{console.log("Tu out");logoutUser();}}>Log out</button>
-
-  )
-}
+  return (
+    <button
+      onClick={() => {
+        logoutUser();
+      }}
+    >
+      Log out
+    </button>
+  );
+};
 
 const AdminMain = () => {
-  const {
-   actor
-  }=useContext(AuthContext);
+  const { actor,account } = useContext(AuthContext);
 
-  if(actor!=="ADMIN") {
-    return (<Navigate replace to='/' />)}
+  if (actor !== "ADMIN") {
+    return <Navigate replace to="/" />;
+  }
+
+ 
 
   return (
     <div>
-
       <div className="HeaderBar">
+        {account&&<div className="header-welcome-text">Xin chào {account.name}!</div>}
         <ul>
-       
           <li>
-            <Link to="/admin/dashboard">
-              <button className={window.location.pathname==='/admin/dashboard'? "yellow-button butt": "butt"}>Dashboard</button>
-            </Link>
-          </li>
-          <li >
-            <Link to="/admin/manage">
-              <button className={window.location.pathname==='/admin/manage'? "yellow-button butt": "butt"}>Quản lý</button>
-            </Link>
-          </li>
-          <li>
-            <Link to="/admin/account">
-              <button className={window.location.pathname==='/admin/account'? "yellow-button": "butt"}>Tài khoản</button>
-            </Link>
+            <NavLink
+
+              className={({ isActive }) => (isActive ?  "activeButton":"normalButton" )}
+              end
+
+              to="/admin/dashboard"
+            >
+              Dashboard
+            </NavLink>
           </li>
           <li>
-          <LogOutButton />
+            <NavLink
+              className={({ isActive }) => (isActive ?  "activeButton":"normalButton" )}
+              end
+              to="/admin/manage"
+            >
+              Quản lý
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className={({ isActive }) => (isActive ?  "activeButton":"normalButton" )}
+              end
+              to="/admin/account"
+            >
+              Tài khoản
+            </NavLink>
+          </li>
+          <li>
+            <LogOutButton />
           </li>
         </ul>
       </div>
 
-        <Outlet />
+      <Outlet />
     </div>
   );
 };

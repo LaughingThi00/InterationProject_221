@@ -14,7 +14,7 @@ export function RoomAWS() {
 
   return (
     <>
-      <div className="table-container">
+      <div className="table-fixed table-container">
         <table className="table table-striped">
           <thead>
             <tr>
@@ -243,7 +243,7 @@ export function RoomDetail({detail}) {
               </Accordion.Header>
               <Accordion.Body>
 
-              <div className="table-container">
+              <div className="table-fixed table-container">
         <table className="table table-striped">
           <thead>
             <tr>

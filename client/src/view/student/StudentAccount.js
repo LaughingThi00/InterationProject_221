@@ -16,6 +16,8 @@ const StudentAccount = () => {
 
 return (
 <>
+<div className="content">
+
 <h1>Tài khoản của tôi</h1>
           {/* =========================== GENERAL INFO ========================= */}
    <div className='DivAccount'>
@@ -111,7 +113,8 @@ return (
               
    </div>
            
-             
+   </div>
+            
 </>  )
 }
 

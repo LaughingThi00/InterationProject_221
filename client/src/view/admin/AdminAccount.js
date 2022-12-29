@@ -14,65 +14,79 @@ const AdminAccount = () => {
 
   return (
     <>
-      <h1>Tài khoản của tôi</h1>
-      {/* =========================== GENERAL INFO ========================= */}
-      <div className="DivAccount">
-        <div>
-          <h6>ID:</h6>
-          <p>{admin ? (admin.id ? admin.id : "Chưa có") : "Chưa xác định"}</p>
-        </div>
+      <div className="content">
+        <h1>Tài khoản của tôi</h1>
+        {/* =========================== GENERAL INFO ========================= */}
+        <div className="DivAccount">
+          <div>
+            <h6>ID:</h6>
+            <p>{admin ? (admin.id ? admin.id : "Chưa có") : "Chưa xác định"}</p>
+          </div>
 
-        <div>
-          <h6>Tên:</h6>
-          <p>
-            {admin ? (admin.name ? admin.name : "Chưa có") : "Chưa xác định"}
-          </p>
-        </div>
+          <div>
+            <h6>Tên:</h6>
+            <p>
+              {admin ? (admin.name ? admin.name : "Chưa có") : "Chưa xác định"}
+            </p>
+          </div>
 
-        <div>
-          <h6>Giới tính:</h6>
-          <p>
-            {admin
-              ? admin.gender
+          <div>
+            <h6>Giới tính:</h6>
+            <p>
+              {admin
                 ? admin.gender
-                : "Chưa có"
-              : "Chưa xác định"}
-          </p>
-        </div>
+                  ? admin.gender
+                  : "Chưa có"
+                : "Chưa xác định"}
+            </p>
+          </div>
 
-        <div>
-          <h6>Tháng sinh:</h6>
-          <p>
-            {admin ? (admin.birth ? admin.birth : "Chưa có") : "Chưa xác định"}
-          </p>
-        </div>
+          <div>
+            <h6>Tháng sinh:</h6>
+            <p>
+              {admin
+                ? admin.birth
+                  ? admin.birth
+                  : "Chưa có"
+                : "Chưa xác định"}
+            </p>
+          </div>
 
-        <div>
-          <h6>Số điện thoại:</h6>
-          <p>
-            {admin ? (admin.phone ? admin.phone : "Chưa có") : "Chưa xác định"}
-          </p>
-        </div>
+          <div>
+            <h6>Số điện thoại:</h6>
+            <p>
+              {admin
+                ? admin.phone
+                  ? admin.phone
+                  : "Chưa có"
+                : "Chưa xác định"}
+            </p>
+          </div>
 
-        <div>
-          <h6>Email:</h6>
-          <p>
-            {admin ? (admin.email ? admin.email : "Chưa có") : "Chưa xác định"}
-          </p>
-        </div>
+          <div>
+            <h6>Email:</h6>
+            <p>
+              {admin
+                ? admin.email
+                  ? admin.email
+                  : "Chưa có"
+                : "Chưa xác định"}
+            </p>
+          </div>
 
-        <div>
-          <h6>Mô tả:</h6>
-          <p>
-            {admin
-              ? admin.description
+          <div>
+            <h6>Mô tả:</h6>
+            <p>
+              {admin
                 ? admin.description
-                : "Chưa có"
-              : "Chưa xác định"}
-          </p>
-        </div>
+                  ? admin.description
+                  : "Chưa có"
+                : "Chưa xác định"}
+            </p>
+          </div>
 
-        <div></div>
+          <div></div>
+        </div>
       </div>
     </>
   );

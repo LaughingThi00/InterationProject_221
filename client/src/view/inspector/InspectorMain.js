@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 
 import { useContext } from "react";
 import { AuthContext } from './../../context/AuthContext';
@@ -8,29 +8,45 @@ import { LogOutButton } from './../admin/AdminMain';
 const InspectorMain = () => {
   
   const {
-    actor,
+    actor,account
   }=useContext(AuthContext);
   if(actor!=="INSPECTOR") return (<Navigate replace to='/' />)
 
   return (
     <div>
       <div className="HeaderBar" >
+      {account&&<div className="header-welcome-text">Xin chào {account.name}!</div>}
+
         <ul>
           <li>
-            <Link to="/inspector/home">
-              <button >Trang của tôi</button>
-            </Link>
+            <NavLink 
+            
+            className={({ isActive }) => (isActive ?  "activeButton":"normalButton" )}
+            end
+
+
+            to="/inspector/home">
+              Trang của tôi
+            </NavLink>
           </li>
           <li>
-            <Link to="/inspector/thisday">
-              <button>Ca trực</button>
-            </Link>
+            <NavLink 
+              className={({ isActive }) => (isActive ?  "activeButton":"normalButton" )}
+              end
+
+to="/inspector/thisday">
+              Ca trực
+            </NavLink>
           </li>
 
           <li>
-            <Link to="/inspector/account">
-              <button > Tài khoản</button>
-            </Link>
+            <NavLink 
+              className={({ isActive }) => (isActive ?  "activeButton":"normalButton" )}
+              end
+
+to="/inspector/account">
+             Tài khoản
+            </NavLink>
           </li>
           <li>
           <LogOutButton />

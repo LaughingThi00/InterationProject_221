@@ -31,10 +31,62 @@ export function AttendanceTable() {
       return a;
     })
   },[ScheduleList,deleteAttendance])
+  const [list, setList] = useState(AttendanceList);
+  const [ClassFilter,setClassFilter]=useState('');
+  const [TypeFilter,setTypeFilter]=useState('');
+
+  const TypeList = [
+    { key: "LATED", value: "Vào trễ" },
+    { key: "PRESENT", value: "Có mặt" },
+    { key: "SOONLEAVED", value: "Về sớm" },
+    { key: "A-ABSENTED", value: "Vắng có phép" },
+    { key: "B-ABSENTED", value: "Vắng không phép" },
+    { key: "UNCHECKED", value: "Chưa điểm danh" },
+    { key: "ALTER_TEACH", value: "Dạy thay" },
+    { key: "ALTER_INSPECT", value: "Kiểm tra đầu giờ thay" },
+    { key: "PRECHECK", value: "Kiểm tra 15 phút đầu giờ" },
+  ];
+  const sortByTimeLastest = () => {
+    setList([
+      ...AttendanceList.sort((a, b) => {
+        let a1=ScheduleList.find(item=>item.id===a.id_schedule).date.split('/');
+        let b1=ScheduleList.find(item=>item.id===b.id_schedule).date.split('/');
+        return (
+          new Date(+a1[2], a1[1] - 1, +a1[0]).getTime() - new Date(+b1[2], b1[1] - 1, +b1[0]).getTime()
+        );
+      }).reverse(),
+    ]);
+  };
+
+  const sortByTimeOldest = () => {
+    setList([
+      ...AttendanceList.sort((a, b) => {
+        let a1=ScheduleList.find(item=>item.id===a.id_schedule).date.split('/');
+        let b1=ScheduleList.find(item=>item.id===b.id_schedule).date.split('/');
+        return (
+          - new Date(+a1[2], a1[1] - 1, +a1[0]).getTime() + new Date(+b1[2], b1[1] - 1, +b1[0]).getTime()
+        );
+      },).reverse(),
+    ]);
+  };
+
+  const filtByClass = (act) => {
+  if(act===''|!act) return;
+setList([
+      ...AttendanceList.filter(item=>ScheduleList(itm=>itm.id===item.id_schedule&&itm.class_===act))
+    ]);
+  };
+
+  const filtByType = (typ) => {
+    if(typ===''|!typ) return;
+  setList([
+        ...AttendanceList.filter(item=>item.type===typ)
+      ]);
+    };
 
   return (
     <>
-      <div className="table-container table-attendance">
+      <div className="table-fixed table-container table-attendance">
         <table className="table table-striped">
           <thead>
             <tr>
@@ -60,7 +112,7 @@ export function AttendanceTable() {
             </tr>
           </thead>
           <tbody>
-            {AttendanceList.map((item, index) => {
+            {list.map((item, index) => {
               let isStudent =
                 item.id_target.substring(0, 3) === "STU"
                   ? true
@@ -115,8 +167,73 @@ export function AttendanceTable() {
             })}
           </tbody>
         </table>
+        <div style={{color:'black',fontWeight:'bold',margin:'10px'}} >Tổng số: {list.length}</div>
         <AddOneAttendanceByAdmin />
         <AddClassAttendanceByAdmin />
+      </div>
+      <div style={{ textAlign: "center" }}>
+        <Button variant="warning" onClick={sortByTimeLastest}>
+          Sắp xếp (Ngày gần nhất)
+        </Button>
+        <Button variant="warning" onClick={sortByTimeOldest}>
+          Sắp xếp (Ngày lâu nhất)
+        </Button>
+      </div>
+
+      <div style={{ textAlign: "center" }}>
+        <Form onSubmit={(e)=>{ e.preventDefault(); filtByClass(ClassFilter)}}>
+              <Form.Label>Chọn lớp</Form.Label>
+              <Form.Select style={{display: 'inline-block', width:'30%',margin:'0 10px'}}
+                onClick={(e)=>{setClassFilter(e.target.value)}}
+                placeholder="Tên lớp"
+              >
+                <option key="0" value="">
+                  Tất cả
+                </option>
+                {/* <option key="0" value="0">
+                  Chưa có
+                </option> */}
+                {ClassList.map((classItem, index) => {
+                  return (
+                    <option key={index} value={classItem.id}>
+                      {classItem.name}
+                    </option>
+                  );
+                })}
+              </Form.Select>
+
+            <Button variant="info" type="submit" style={{marginTop:'5px'}}>
+              Lọc lớp
+            </Button>
+          </Form>
+      </div>
+
+      <div style={{ textAlign: "center" }}>
+        <Form onSubmit={(e)=>{ e.preventDefault(); filtByType(TypeFilter)}}>
+              <Form.Label>Chọn loại</Form.Label>
+              <Form.Select style={{display: 'inline-block', width:'30%',margin:'0 10px'}}
+                onClick={(e)=>{setTypeFilter(e.target.value)}}
+                placeholder="Tên lớp"
+              >
+                <option key="0" value="">
+                  Tất cả
+                </option>
+                {/* <option key="0" value="0">
+                  Chưa có
+                </option> */}
+                {TypeList.map((item,index) => {
+                  return (
+                    <option key={index} value={item.key}>
+                      {item.value}
+                    </option>
+                  );
+                })}
+              </Form.Select>
+
+            <Button variant="info" type="submit" style={{marginTop:'5px'}}>
+              Lọc loại
+            </Button>
+          </Form>
       </div>
     </>
   );

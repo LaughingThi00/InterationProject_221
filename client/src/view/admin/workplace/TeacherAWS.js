@@ -12,7 +12,7 @@ export function TeacherAWS() {
 
   return (
     <>
-      <div className="table-container">
+      <div className="table-fixed table-container">
         <table className="table table-striped">
           <thead>
             <tr>
