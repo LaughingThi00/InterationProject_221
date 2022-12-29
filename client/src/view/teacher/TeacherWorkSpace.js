@@ -172,6 +172,8 @@ if(actor!=="TEACHER") return (<Navigate  to='/' />)
               compareDateString(datenow, item.date) === 0
             ) {
               if (!schedulenow.includes(item))
+              if(ClassList.find((c) => c.id === item.class_).teacher ===
+                account.id)
                 setScheduleNow([...schedulenow, item]);
             }
             return (
@@ -333,7 +335,7 @@ if(actor!=="TEACHER") return (<Navigate  to='/' />)
                                   c.id ===
                                   StudentList.find(
                                     (s) => s.id === item.id_target
-                                  ).class_
+                                  )
                               )
                             : ClassList.find(
                                 (c) =>

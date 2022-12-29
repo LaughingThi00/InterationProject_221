@@ -69,6 +69,8 @@ export default function InspectorDashBoard() {
                 compareDateString(datenow, item.date) === 0
               ) {
                 if (!schedulenow.includes(item))
+                if(ClassList.find((c) => c.id === item.class_).inspector ===
+                account.id)
                   setScheduleNow([...schedulenow, item]);
               }
               return (

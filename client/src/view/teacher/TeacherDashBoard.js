@@ -69,11 +69,15 @@ export default function TeacherDashBoard() {
             {ScheduleList.map((item, index) => {
               if (compareDateString(datenow, item.date) === 0) {
                 if (!schedulenow.includes(item))
+                if(ClassList.find((c) => c.id === item.class_).teacher ===
+                account.id)
                   setScheduleNow([...schedulenow, item]);
+                 
               }
               return (
                 ClassList.find((c) => c.id === item.class_).teacher ===
-                  account.id && (
+                  account.id &&
+                   (
                   <tr key={index}>
                     <th scope="row" colSpan="1">
                       {index + 1}
