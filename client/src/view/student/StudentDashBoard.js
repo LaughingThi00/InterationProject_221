@@ -240,9 +240,8 @@ function HistorySchedule({ schedule }) {
         InspectorAtt = att;
       }
   });
-  let ssnow =
-    (100 * (Statistic.soonleave + Statistic.present + Statistic.lated)) /
-    Statistic.total;
+  let ssnow=Statistic.total? Math.floor(100*(Statistic.soonleave +Statistic.present+Statistic.lated)/Statistic.total) :0;
+
 
   // const myschedule=ScheduleList.find(s=>s.id===schedule);
     const myattendance= AttendanceList.find(a=>a.id_target===account.id&&a.id_schedule===schedule);

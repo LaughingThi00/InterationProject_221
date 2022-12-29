@@ -111,7 +111,7 @@ const StudentWorkSpace = () => {
         if (att.prenum) Statistic.isPrechecked = true;
       }
   });
-  let ssnow=100*(Statistic.present+Statistic.lated)/Statistic.total
+  let ssnow=Statistic.total? Math.floor(100*(Statistic.present+Statistic.lated)/Statistic.total) :0;
 
 
   const PlusWorkDay = AttendanceList.filter(item=>item.id_target===account.id&&item.debt_schedule);

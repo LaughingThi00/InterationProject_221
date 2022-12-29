@@ -226,9 +226,10 @@ export function HistorySchedule({ schedule }) {
         InspectorAtt = att;
       }
   });
-  let ssnow =
-    (100 * (Statistic.soonleave + Statistic.present + Statistic.lated)) /
-    Statistic.total;
+
+  let ssnow=Statistic.total? Math.floor(100*(Statistic.soonleave +Statistic.present+Statistic.lated)/Statistic.total) :0;
+
+
 
   return (
     <>
