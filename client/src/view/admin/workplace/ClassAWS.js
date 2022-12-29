@@ -29,6 +29,9 @@ export function ClassAWS() {
      
     });
   }, [ClassList]);
+  useEffect(()=>{
+    console.log("Rerender ClassTable")
+  },[StudentList])
   return (
     <>
       <div className="table-fixed table-container">
@@ -212,6 +215,9 @@ export function ClassDetailButton({ detail }) {
   const handleShow = () => setShow(true);
   
   const {InspectorList,TeacherList,StudentList}=useContext(DataContext)
+  useEffect(()=>{
+    console.log("Rerender UpdateDetail")
+  },[StudentList])
   return (
     <>
       <Button variant="info" onClick={handleShow}>
@@ -257,7 +263,7 @@ export function ClassDetailButton({ detail }) {
 
             <Accordion.Item eventKey="1">
               <Accordion.Header>
-                Danh sách {detail.num} thành viên{" "}
+                Danh sách thành viên{" "}
               </Accordion.Header>
               <Accordion.Body>
                 <AddStudentInClassForm detail={detail} />
@@ -287,6 +293,8 @@ export function UpdateClassDetail({ detail }) {
     updateClass,
     InspectorList,
     TeacherList,
+    StudentList,
+    ClassList
     // , ClassList
   } = useContext(DataContext);
   const [show, setShow] = useState(false);
@@ -434,15 +442,15 @@ export function AddStudentInClassForm({ detail }) {
     if (!student.includes(stu)) {
       setStudent((student) => [...student, stu]);
       addStudentIn(detail.id, e.target.value);
-
-      setUpdatingClass({ ...UpdatingClass, num: student.length + 1 });
-      updateClass(UpdatingClass);
+console.log("addStudentIn(detail.id, e.target.value):",detail.id, e.target.value)
+    
     }
   };
   const handleDeleteStudent = (e) => {
     updateClass(UpdatingClass);
     setStudent(student.filter((d) => d.id !== e.target.value));
     deleteOneStudentIn(detail.id, e.target.value);
+    console.log("detail.id, e.target.value:",detail.id, e.target.value)
   };
   //=========================== HANDLE SUBMIT FUNCTION =========================
 

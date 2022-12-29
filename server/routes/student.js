@@ -117,7 +117,7 @@ router.put("/update/:id",  async (req, res) => {
 
 router.put("/removeclass/:id",  async (req, res) => {
   try {
-    UpdatedStudent = await Student.updateOne(
+    UpdatedStudent = await Student.updateMany(
       { id: req.params.id },
       { class_: null }
     );

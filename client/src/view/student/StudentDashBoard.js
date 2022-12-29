@@ -21,7 +21,9 @@ export default function StudentDashBoard() {
   const now = new Date();
   const datenow = now.toLocaleDateString('en-GB');
   const isStudentCurrent=actor==="STUDENT";
-  const myclass =isStudentCurrent? ClassList.find((c) => c.id === account.class_):null;
+ 
+
+  const myclass =isStudentCurrent? ClassList.find((c) => c.id === account.class_)?ClassList.find((c) => c.id === account.class_):null:null;
   const [schedulenow, setScheduleNow] = useState([]);
 
   if(actor!=="STUDENT") return (<Navigate  to='/' />)
@@ -76,12 +78,12 @@ export default function StudentDashBoard() {
           </thead>
           <tbody>
             {ScheduleList.map((item, index) => {if(isStudentCurrent)
-              if (item.class_===myclass.id &&compareDateString(datenow, item.date) === 0) {
+              if (myclass&&item.class_===myclass.id &&compareDateString(datenow, item.date) === 0) {
                 if (!schedulenow.includes(item))
                   setScheduleNow([...schedulenow, item]);
               }
               return (
-                isStudentCurrent&&item.class_===myclass.id && (
+                myclass&&isStudentCurrent&&item.class_===myclass.id && (
                   <tr key={index}>
                     <th scope="row" colSpan="1">
                       {index + 1}

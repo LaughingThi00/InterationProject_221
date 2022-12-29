@@ -326,25 +326,8 @@ const InspectorWorkSpace = () => {
                               ? true
                               : false;
 
-                          let thisclass = isStudent
-                            ? ClassList.find(
-                                (c) =>
-                                  c.id ===
-                                  StudentList.find(
-                                    (s) => s.id === item.id_target
-                                  )
-                              )
-                            : ClassList.find(
-                                (c) =>
-                                  c.inspector === item.id_target ||
-                                  c.teacher === item.id_target
-                              )
-                            ? ClassList.find(
-                                (c) =>
-                                  c.inspector === item.id_target ||
-                                  c.teacher === item.id_target
-                              )
-                            : null;
+                              let thisclass = ClassList.find(itm=>itm.id===ScheduleList.find(it=>it.id===item.id_schedule).class_)
+
                           return (
                             item.id_schedule === ThisSchedule && (
                               <tr key={index} className={item.type}>

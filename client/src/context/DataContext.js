@@ -444,18 +444,6 @@ if(!predata) {
       item: data,
     })
 
-
-    if (predata.class_ !== data.class_) {
-      dispatchClassList({
-        type: "UPDATE_ADD_STUDENT",
-        item: data.class_,
-      });
-      dispatchClassList({
-        type: "UPDATE_DELETE_STUDENT_IN",
-        item: predata.class_,
-      });
-    }
-
   }
 
 } catch (error) {
@@ -565,9 +553,9 @@ if(!predata) {
       type: "UPDATE",
       item: data,
     });
+  
   }
  } catch (error) {
-  console.log(error)
   console.log(error)
  }
   
@@ -576,27 +564,9 @@ if(!predata) {
   //Class: When adding a new student into a class, update class property of that student{}, update num property of classes{}
   const addStudentIn = async (class_id, student_id) => {
    try {
-    console.log(class_id, student_id)
     const stu = StudentList.find((s) => s.id === student_id);
     if (stu) {
-      //   if (ClassList.find((s) => s.id === stu.class_)) {
-          
-      //     const classRemoveProcess= await axios.put(`${apiUrl}/class/decrease/${stu.class_}`)
-      //     if(classRemoveProcess.data.sucess)
-      //     dispatchClassList({
-      //       type: "UPDATE_DELETE_STUDENT_IN",
-      //       item: stu.class_,
-      //     });
-      //   }
-      // }
-      // if(stu.class_!==class_id){
-      //   const classAddProcess= await axios.put(`${apiUrl}/class/increase/${class_id}`)
-      //     if(classAddProcess.data.sucess)
-      //     dispatchClassList({
-      //       type: "UPDATE_ADD_STUDENT",
-      //       item: class_id,
-      //     });
-      // }
+     
       const studentUpdateProcess= await axios.put(`${apiUrl}/student/update/${student_id}`,{class_:class_id})
           if(studentUpdateProcess.data.sucess)
           dispatchStudentList({
@@ -606,7 +576,6 @@ if(!predata) {
           });
           }
    } catch (error) {
-    console.log(error)
     console.log(error)
    }
    
@@ -624,12 +593,7 @@ if(!predata) {
         id: stu_id,
       });
   
-      // const classRemoveProcess= await axios.put(`${apiUrl}/class/decrease/${class_id}`)
-      // if(classRemoveProcess.data.sucess)
-      // dispatchClassList({
-      //   type: "UPDATE_DELETE_STUDENT_IN",
-      //   item: class_id,
-      // });
+    
     } catch (error) {
       console.log(error)
       console.log(error)
@@ -882,7 +846,6 @@ if(!predata) {
   useEffect(()=>{
     getStudents();
   },[
-    // ()=>addStudentIn(),()=>deleteOneStudentIn()
   ])
 
   // *======================================================// Context data, function provider//========================================================//
