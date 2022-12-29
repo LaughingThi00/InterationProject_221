@@ -332,7 +332,7 @@ const InspectorWorkSpace = () => {
                                   c.id ===
                                   StudentList.find(
                                     (s) => s.id === item.id_target
-                                  ).class_
+                                  )
                               )
                             : ClassList.find(
                                 (c) =>
