@@ -103,9 +103,9 @@ return (
 
                 <div>
                   <h6>Danh sách lớp trực:</h6>
-                  {ClassList.map((item) => {
+                  {ClassList.map((item,index) => {
                     return (
-                      item.inspector===account.id&&<div className="editors_item" key={item}>
+                      item.inspector===account.id&&<div className="editors_item" key={index}>
                         <div className="editors_item_content">
                           {item.name}
                         </div>

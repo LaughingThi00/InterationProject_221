@@ -97,10 +97,10 @@ const TeacherAccount = () => {
 
           <div>
             <h6>Danh sách lớp dạy:</h6>
-            {ClassList.map((item) => {
+            {ClassList.map((item,index) => {
               return (
                 item.teacher === account.id && (
-                  <div className="editors_item" key={item}>
+                  <div className="editors_item" key={index}>
                     <div className="editors_item_content">{item.name}</div>
                   </div>
                 )
