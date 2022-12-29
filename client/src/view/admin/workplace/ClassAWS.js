@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { Button, Modal, Accordion, Form } from "react-bootstrap";
 import { DataContext } from "../../../context/DataContext";
 import InspectorDashboard from "../../inspector/InspectorMain";
+import { ScheduleDetailButton } from "./ScheduleAWS";
 
 export function ClassAWS() {
   const {
@@ -214,7 +215,7 @@ export function ClassDetailButton({ detail }) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   
-  const {InspectorList,TeacherList,StudentList}=useContext(DataContext)
+  const {InspectorList,TeacherList,StudentList,ScheduleList,ClassList,RoomList}=useContext(DataContext)
   useEffect(()=>{
     console.log("Rerender UpdateDetail")
   },[StudentList])
@@ -273,7 +274,63 @@ export function ClassDetailButton({ detail }) {
             <Accordion.Item eventKey="2">
               <Accordion.Header>Thời khóa biểu</Accordion.Header>
               <Accordion.Body>
+              <div className="table-fixed table-container">
+        <table className="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col" colSpan="1">
+                #
+              </th>
+              <th scope="col" colSpan="2">
+                ID
+              </th>
+              <th scope="col" colSpan="2">
+                Lớp
+              </th>
+              <th scope="col" colSpan="2">
+                Ngày
+              </th>
+              <th scope="col" colSpan="2">
+                Phòng
+              </th>
+              <th scope="col" colSpan="2">
+                {" "}
+                Tùy chỉnh
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {ScheduleList.map((item, index) => {
+              return (
+                item.class_===detail.id&&<tr key={index}>
+                  <th scope="row" colSpan="1">
+                    {index + 1}
+                  </th>
+                  <td colSpan="2">{item.id}</td>
+                  <td colSpan="2">
+                    {item.class_
+                      ? ClassList.find((c) => c.id === item.class_)
+                        ? ClassList.find((c) => c.id === item.class_).name
+                        : "Không"
+                      : "Không"}
+                  </td>
+                  <td colSpan="2">{item.date}</td>
+                  <td colSpan="2">
+                    {item.room
+                    ?RoomList.find((r) => r.id === item.room)
+                      ? RoomList.find((r) => r.id === item.room).name
+                      : "Phòng đã bị xóa": "Không"}
+                  </td>
+                  <td colSpan="2">
+                    <ScheduleDetailButton detail={item} />
               
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
               </Accordion.Body>
             </Accordion.Item>
           </Accordion>
