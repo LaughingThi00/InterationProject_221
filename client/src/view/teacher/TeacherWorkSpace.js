@@ -496,7 +496,7 @@ function StudentInClass({ detail }) {
   const { StudentList } = useContext(DataContext);
 
   const student = StudentList.filter((d) =>
-    d.class_ ? (d.class_ === detail.id ? true : false) : false
+    d.class_ === detail.id
   );
 
   return (
@@ -548,27 +548,7 @@ function ScheduleDetailButton({ detail }) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const [member, setMember] = useState(
-    StudentList.filter((s) =>
-      s.class_ && detail.class_
-        ? s.class_ === detail.class_
-          ? true
-          : false
-        : false
-    )
-  );
-
-  useEffect(() => {
-    setMember(
-      StudentList.filter((s) =>
-        s.class_ && detail.class_
-          ? s.class_ === detail.class_
-            ? true
-            : false
-          : false
-      )
-    );
-  }, [StudentList, ClassList]);
+ 
   return (
     <>
       <Button variant="info" onClick={handleShow}>
@@ -679,9 +659,9 @@ function ScheduleDetailButton({ detail }) {
                     </thead>
 
                     <tbody>
-                      {member.map((item, index) => {
+                    {StudentList.map((item, index) => {
                         return (
-                          <tr key={index}>
+                          item.class===detail.class&&<tr key={index}>
                             <th scope="row" colSpan="1">
                               {index + 1}
                             </th>
