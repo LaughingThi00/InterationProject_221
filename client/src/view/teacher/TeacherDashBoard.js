@@ -1,7 +1,7 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState,useEffect } from "react";
 import { ScheduleDetailButton } from "../admin/workplace/ScheduleAWS";
 import { DataContext } from "./../../context/DataContext";
-import { Accordion, AccordionButton, Button, Modal, ProgressBar } from "react-bootstrap";
+import { Accordion, Form, Button, Modal, ProgressBar } from "react-bootstrap";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { AuthContext } from './../../context/AuthContext';
 
@@ -26,6 +26,47 @@ export default function TeacherDashBoard() {
   useState(() => {
     setScheduleNow([]);
   }, [account]);
+
+
+
+  const [list, setList] = useState(ScheduleList);
+  const [ClassFilter,setClassFilter]=useState('');
+  useEffect(()=>{setList(ScheduleList)},[ScheduleList])
+
+  const sortByTimeLastest = () => {
+    setList([
+      ...ScheduleList.sort((a, b) => {
+        let a1=a.date.split('/');
+        let b1=b.date.split('/');
+        return (
+          new Date(+a1[2], a1[1] - 1, +a1[0]).getTime() - new Date(+b1[2], b1[1] - 1, +b1[0]).getTime()
+        );
+      }).reverse(),
+    ]);
+  };
+
+  const sortByTimeOldest = () => {
+    setList([
+      ...ScheduleList.sort((a, b) => {
+        let a1=a.date.split('/');
+        let b1=b.date.split('/');
+        return (
+          - new Date(+a1[2], a1[1] - 1, +a1[0]).getTime() + new Date(+b1[2], b1[1] - 1, +b1[0]).getTime()
+        );
+      },).reverse(),
+    ]);
+  };
+
+  const filtByClass = (act) => {
+  if(act===''|!act) return;
+setList([
+      ...ScheduleList.filter(item=>item.class_===act)
+    ]);
+  };
+
+
+
+
   if(actor!=="TEACHER") return (<Navigate  to='/' />)
 
   return (
@@ -66,7 +107,7 @@ export default function TeacherDashBoard() {
             </tr>
           </thead>
           <tbody>
-            {ScheduleList.map((item, index) => {
+            {list.map((item, index) => {
               if (compareDateString(datenow, item.date) === 0) {
                 if (!schedulenow.includes(item))
                 if(ClassList.find((c) => c.id === item.class_).teacher ===
@@ -117,6 +158,47 @@ export default function TeacherDashBoard() {
           </tbody>
         </table>
       </div>
+
+      <div style={{ textAlign: "center" }}>
+        <Button variant="warning" onClick={sortByTimeLastest}>
+          Sắp xếp (Ngày gần nhất)
+        </Button>
+        <Button variant="warning" onClick={sortByTimeOldest}>
+          Sắp xếp (Ngày lâu nhất)
+        </Button>
+      </div>
+
+      <div style={{ textAlign: "center" }}>
+        
+        <Form onSubmit={(e)=>{ e.preventDefault(); filtByClass(ClassFilter)}}>
+              <Form.Label>Chọn lớp</Form.Label>
+              <Form.Select style={{display: 'inline-block', width:'30%',margin:'0 10px'}}
+                onClick={(e)=>{setClassFilter(e.target.value)}}
+                placeholder="Tên lớp"
+              >
+                <option key="0" value="">
+                  Tất cả
+                </option>
+                {/* <option key="0" value="0">
+                  Chưa có
+                </option> */}
+                {ClassList.map((classItem, index) => {
+                  return (
+                    <option key={index} value={classItem.id}>
+                      {classItem.name}
+                    </option>
+                  );
+                })}
+              </Form.Select>
+
+            <Button variant="info" type="submit" style={{marginTop:'5px'}}>
+              Lọc
+            </Button>
+          </Form>
+      </div>
+
+      
+      <br></br>
       <br></br>
     </>
   );
