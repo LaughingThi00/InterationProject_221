@@ -3,6 +3,7 @@ import { Button, Modal, Accordion, Form } from "react-bootstrap";
 import { DataContext } from "../../../context/DataContext";
 import { AddClassAttendanceToday } from "./AttendanceAWS";
 import { AddStudentButton, StudentDetailButton } from "./StudentAWS";
+import { AuthContext } from './../../../context/AuthContext';
 
 export function ScheduleAWS() {
   //Schedule table + Modal add Schedule for a class
@@ -739,6 +740,8 @@ setList([
 
 export function ScheduleDetailButton({ detail }) {
   const { StudentList, ClassList, RoomList } = useContext(DataContext);
+  
+  const { actor } = useContext(AuthContext);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -832,7 +835,7 @@ export function ScheduleDetailButton({ detail }) {
                   <p>{detail.description ? detail.description : "Không"}</p>
                 </div>
 
-                <Button variant="warning">Chỉnh sửa</Button>
+                <Button variant={actor==="ADMIN"? "warning":"secondary"} >Chỉnh sửa</Button>
                 <AddClassAttendanceToday schedule={detail.id} />
               </Accordion.Body>
             </Accordion.Item>

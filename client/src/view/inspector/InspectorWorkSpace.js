@@ -61,9 +61,10 @@ const InspectorWorkSpace = () => {
     ? ClassList.find((c) => c.id === Schedule.class_)
     : null;
 
+    let numClass=StudentList.filter(item=>ThisSchedule&&item.class_===Schedule.class_).length
   //for statistics purposes
   let Statistic = {
-    total: ThisSchedule ? Class.num : 0,
+    total: ThisSchedule ? numClass : 0,
     unchecked: 0,
     lated: 0,
     present: 0,
