@@ -455,11 +455,10 @@ p.yellow-text {
 }
 
 .content {
-  width: 95vw;
+  width: 100vw;
   min-height: 500px;
   background-color: #fff;
-  margin: 20px auto;
-  border-radius: 10px;
+  margin: 20px 0!important;
   padding: 50px 10px;
 }
 

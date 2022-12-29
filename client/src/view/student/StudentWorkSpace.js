@@ -114,6 +114,9 @@ const StudentWorkSpace = () => {
   let ssnow=100*(Statistic.present+Statistic.lated)/Statistic.total
 
 
+  const PlusWorkDay = AttendanceList.filter(item=>item.id_target===account.id&&item.debt_schedule);
+  let PlusSchedule= PlusWorkDay? ScheduleList.find(item=>item.id===PlusWorkDay.id_schedule):null;
+   
   if(actor!=="STUDENT") return (<Navigate  to='/' />)
 
   return (
@@ -128,7 +131,22 @@ const StudentWorkSpace = () => {
           </h2>
         );
       })}
-
+{PlusWorkDay&&<> 
+          <h2 >
+            Hôm nay, bạn được học bù ở lớp  {PlusSchedule.class_?ClassList.find(itm=>itm.id===PlusSchedule.class_).name: 'Không xác định'} diễn ra vào {PlusSchedule.starttime}, kết thúc lúc{" "}
+            {PlusSchedule.endtime} ở phòng{" "}
+            {RoomList.find((r) => r.id === PlusSchedule.room).name}. 
+          </h2>
+          <Button
+                          variant="success"
+                          value={PlusWorkDay.id_schedule}
+                          onClick={handleJoin}
+                        >
+                          {" "}
+                          Tham gia
+                        </Button>
+          </>
+        }
       <div className="table-container">
         <table className="table table-striped">
           <thead>

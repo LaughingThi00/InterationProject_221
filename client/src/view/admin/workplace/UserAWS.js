@@ -175,7 +175,7 @@ export function UserAWS() {
               </Form.Select>
 
             <Button variant="info" type="submit" style={{marginTop:'5px'}}>
-              Lọc lớp
+              Lọc 
             </Button>
           </Form>
       </div>
