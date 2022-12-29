@@ -568,7 +568,7 @@ if(!predata) {
     if (stu) {
      
       const studentUpdateProcess= await axios.put(`${apiUrl}/student/update/${student_id}`,{class_:class_id})
-          if(studentUpdateProcess.data.sucess)
+          if(studentUpdateProcess.data.success)
           dispatchStudentList({
             type: "UPDATE_ADD_STUDENT_IN",
             class_id,
@@ -586,9 +586,8 @@ if(!predata) {
 
     try {
       const studentRemoveProcess= await axios.put(`${apiUrl}/student/removeclass/${stu_id}`)
-      if(studentRemoveProcess.data.sucess)
+      if(studentRemoveProcess.data.success)
       dispatchStudentList({
-        //update class property of deleted student into NULL
         type: "UPDATE_DELETE_STUDENT_IN",
         id: stu_id,
       });

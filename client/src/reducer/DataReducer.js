@@ -162,13 +162,12 @@ export const reducerStudentList = (state, action) => {
       return student_update;
 
     case "UPDATE_ADD_STUDENT_IN":
-      console.log("call UPDATE_ADD_STUDENT_IN:",action.student_id,action.class_id)
-      let student_uasi = state.map((std) => {
+      state.forEach((std) => {
         if (std.id === action.student_id)
           std.class_ = action.class_id;
         // return std;
       });
-      return student_uasi;
+      return state;
 
     case "UPDATE_DELETE_ALL_STUDENT_IN":
       const student_udasi = state.map((s) => {
@@ -182,7 +181,6 @@ export const reducerStudentList = (state, action) => {
 
     case "UPDATE_DELETE_STUDENT_IN":
       state.find((k) => k.id === action.id).class_ = null;
-      console.log('UPDATE_DELETE_STUDENT_IN state.find((k) => k.id === action.id).class_:',state.find((k) => k.id === action.id).class_)
       return state;
 
     case "DELETE_ONE":
