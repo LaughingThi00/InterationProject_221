@@ -340,7 +340,7 @@ export function UpdateClassDetail({ detail }) {
                     <Form.Label>Đặt tên lớp</Form.Label>
                     <Form.Control
                       placeholder={detail.name}
-                      name="class_name"
+                      name="name"
                       onChange={handleChange}
                     />
                   </Form.Group>
