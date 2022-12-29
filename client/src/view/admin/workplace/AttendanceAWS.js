@@ -72,9 +72,10 @@ export function AttendanceTable() {
   };
 
   const filtByClass = (act) => {
-  if(act===''|!act) return;
+  if(!act) return;
+  if(act==="*") setList(AttendanceList)
 setList([
-      ...AttendanceList.filter(item=>ScheduleList(itm=>itm.id===item.id_schedule&&itm.class_===act))
+      ...AttendanceList.filter(item=>ScheduleList.find(itm=>itm.id===item.id_schedule&&itm.class_===act))
     ]);
   };
 
@@ -188,7 +189,7 @@ setList([
                 onClick={(e)=>{setClassFilter(e.target.value)}}
                 placeholder="Tên lớp"
               >
-                <option key="0" value="">
+                <option key="0" value="*">
                   Tất cả
                 </option>
                 {/* <option key="0" value="0">
