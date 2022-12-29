@@ -114,7 +114,7 @@ const StudentWorkSpace = () => {
   let ssnow=Statistic.total? Math.floor(100*(Statistic.present+Statistic.lated)/Statistic.total) :0;
 
 
-  const PlusWorkDay = AttendanceList.filter(item=>item.id_target===account.id&&item.debt_schedule);
+  const PlusWorkDay = AttendanceList.find(item=>item.id_target===account.id&&item.debt_schedule);
   let PlusSchedule= PlusWorkDay? ScheduleList.find(item=>item.id===PlusWorkDay.id_schedule):null;
    
   if(actor!=="STUDENT") return (<Navigate  to='/' />)

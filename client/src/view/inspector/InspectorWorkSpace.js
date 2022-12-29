@@ -103,7 +103,7 @@ const InspectorWorkSpace = () => {
   });
   let ssnow=Statistic.total? Math.floor(100*(Statistic.present+Statistic.lated)/Statistic.total) :0;
 
-  const PlusWorkDay = AttendanceList.filter(item=>item.id_target===account.id&&item.type==="ALTER_INSPECT");
+  const PlusWorkDay = AttendanceList.find(item=>item.id_target===account.id&&item.type==="ALTER_INSPECT");
   let PlusSchedule= PlusWorkDay? ScheduleList.find(item=>item.id===PlusWorkDay.id_schedule):null;
    
 
