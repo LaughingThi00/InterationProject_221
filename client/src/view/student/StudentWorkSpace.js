@@ -592,7 +592,7 @@ function ScheduleDetailButton({ detail }) {
                     <tbody>
                     {StudentList.map((item, index) => {
                         return (
-                          item.class===detail.class&&<tr key={index}>
+                          item.class_===detail.class_&&<tr key={index}>
                             <th scope="row" colSpan="1">
                               {index + 1}
                             </th>
