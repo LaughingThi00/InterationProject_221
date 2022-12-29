@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Button, Modal, Accordion, Form } from "react-bootstrap";
 import { DataContext } from "../../../context/DataContext";
-import { AuthContext } from './../../../context/AuthContext';
+import { AuthContext } from "./../../../context/AuthContext";
 
 export function StudentAWS() {
   const { ClassList, StudentList, deleteStudent } = useContext(DataContext);
@@ -89,7 +89,10 @@ export function AddStudentButton() {
     if (e.target.value === "") return;
     if (e.target.name === "birth") {
       const d = new Date(e.target.value);
-      setStudentTarget({ ...StudentTarget, birth: d.toLocaleDateString('en-GB') });
+      setStudentTarget({
+        ...StudentTarget,
+        birth: d.toLocaleDateString("en-GB"),
+      });
     } else
       setStudentTarget({ ...StudentTarget, [e.target.name]: e.target.value });
   };
@@ -311,11 +314,14 @@ export function StudentDetailButton({ detail }) {
 }
 
 export function UpdateStudentButton({ student }) {
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
   const { ClassList, updateStudent } = useContext(DataContext);
   const { actor } = useContext(AuthContext);
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => {
+    if (actor !== "ADMIN") return;
+    else setShow(true);
+  };
 
   //=========================== OBJECT =========================
   const [StudentTarget, setStudentTarget] = useState({
@@ -335,7 +341,10 @@ export function UpdateStudentButton({ student }) {
     if (e.target.value === "") return;
     if (e.target.name === "birth") {
       const d = new Date(e.target.value);
-      setStudentTarget({ ...StudentTarget, birth: d.toLocaleDateString('en-GB') });
+      setStudentTarget({
+        ...StudentTarget,
+        birth: d.toLocaleDateString("en-GB"),
+      });
     } else
       setStudentTarget({ ...StudentTarget, [e.target.name]: e.target.value });
   };
@@ -347,7 +356,10 @@ export function UpdateStudentButton({ student }) {
   };
   return (
     <>
-      <Button variant={actor==="ADMIN"?"info":"secondary"} onClick={handleShow}>
+      <Button
+        variant={actor === "ADMIN" ? "info" : "secondary"}
+        onClick={handleShow}
+      >
         Chỉnh sửa
       </Button>
 
