@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Button, Modal, Accordion, Form } from "react-bootstrap";
 import { DataContext } from "../../../context/DataContext";
+import { AuthContext } from './../../../context/AuthContext';
 
 export function StudentAWS() {
   const { ClassList, StudentList, deleteStudent } = useContext(DataContext);
@@ -314,6 +315,8 @@ export function UpdateStudentButton({ student }) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const { ClassList, updateStudent } = useContext(DataContext);
+  const { actor } = useContext(AuthContext);
+
   //=========================== OBJECT =========================
   const [StudentTarget, setStudentTarget] = useState({
     id: student.id,
@@ -344,7 +347,7 @@ export function UpdateStudentButton({ student }) {
   };
   return (
     <>
-      <Button variant="info" onClick={handleShow}>
+      <Button variant={actor==="ADMIN"?"info":"secondary"} onClick={handleShow}>
         Chỉnh sửa
       </Button>
 
