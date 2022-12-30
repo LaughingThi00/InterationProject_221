@@ -10,10 +10,7 @@ export function AttendanceAWS() {
   return (
     <>
       <AttendanceTable />
-      {/* <AddOneAttendanceByAdmin /> */}
-      {/* <AddClassAttendanceByAdmin /> */}
-      {/* <AttendanceDetailButton /> */}
-      {/* <UpdateAttendanceDetail /> */}
+ 
     </>
   );
 }
@@ -74,15 +71,18 @@ export function AttendanceTable() {
   const filtByClass = (act) => {
   if(!act) return;
   if(act==="*") setList(AttendanceList)
+  else
 setList([
-      ...AttendanceList.filter(item=>ScheduleList.find(itm=>itm.id===item.id_schedule&&itm.class_===act))
+      ...AttendanceList.filter(item=>ScheduleList.find(itm=>itm.id===item.id_schedule).class_===act)
     ]);
   };
 
   const filtByType = (typ) => {
     if(typ===''|!typ) return;
+    if(typ==="*") setList(AttendanceList)
+    else
   setList([
-        ...AttendanceList.filter(item=>item.type===typ)
+        ...list.filter(item=>item.type===typ)
       ]);
     };
 
@@ -217,7 +217,7 @@ setList([
                 onClick={(e)=>{setTypeFilter(e.target.value)}}
                 placeholder="Tên lớp"
               >
-                <option key="0" value="">
+                <option key="0" value="*">
                   Tất cả
                 </option>
                 {/* <option key="0" value="0">

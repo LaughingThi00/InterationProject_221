@@ -337,6 +337,8 @@ export function ScheduleAWS() {
 
   const filtByClass = (act) => {
   if(act===''|!act) return;
+  if(act==='*') setList(ScheduleList)
+  else
 setList([
       ...ScheduleList.filter(item=>item.class_===act)
     ]);
@@ -430,7 +432,7 @@ setList([
                 onClick={(e)=>{setClassFilter(e.target.value)}}
                 placeholder="Tên lớp"
               >
-                <option key="0" value="">
+                <option key="0" value="*">
                   Tất cả
                 </option>
                 {/* <option key="0" value="0">

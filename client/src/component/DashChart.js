@@ -20,7 +20,7 @@ function DashChart() {
   const [FiltedAttendanceList, setFiltedAttendanceList] =
     useState(AttendanceList);
 
-  const [ClassFilter, setClassFilter] = useState("");
+  const [ClassFilter, setClassFilter] = useState(null);
   const filtByClass = (act) => {
     if ( !act) return;
     if(act==="*") setFiltedAttendanceList(AttendanceList)
@@ -28,13 +28,13 @@ function DashChart() {
     setFiltedAttendanceList([
       ...AttendanceList.filter((item) =>
         ScheduleList.find(
-          (itm) => itm.id === item.id_schedule && itm.class_ === act
-        )
+          (itm) => itm.id === item.id_schedule).class_ === act
+        
       )
     ]);
   };
 
-  const [StudentFilter, setStudentFilter] = useState("");
+  const [StudentFilter, setStudentFilter] = useState(null);
   const filtByStudent = (act) => {
     if ( !act) return;
     if(act==="*") setFiltedAttendanceList(AttendanceList)
@@ -42,6 +42,8 @@ function DashChart() {
     setFiltedAttendanceList([
       ...AttendanceList.filter((item) => item.id_target === act),
     ]);
+    console.log(act)
+    console.log(FiltedAttendanceList)
   };
   let pieAtt = {
     lated: 0,
@@ -154,8 +156,8 @@ function DashChart() {
                   "#8e5ea2",
                 ],
                 data: [
-                  pieAtt.lated,
                   pieAtt.present,
+                  pieAtt.lated,            
                   pieAtt.soonleaved,
                   pieAtt.a_absented,
                   pieAtt.b_absented,
