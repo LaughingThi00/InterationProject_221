@@ -12,7 +12,7 @@ const classRouter = require('./routes/class')
 const roomRouter = require('./routes/room')
 const scheduleRouter = require('./routes/schedule')
 const attendanceRouter = require('./routes/attendance')
-const path = require('path')
+// const path = require('path')
 
 require('dotenv').config()
 
@@ -40,9 +40,9 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 if(process.env.NODE_ENV === 'production') 
-app.get('/*',(req, res) => {
-	res.sendFile(path.join(__dirname + '/client/build/public/index.html'))
-  })
+// app.get('/*',(req, res) => {
+// 	res.sendFile(path.join(__dirname + '/client/build/public/index.html'))
+//   })
 app.use('/api/auth', authRouter)
 app.use('/api/user', userRouter)
 app.use('/api/admin', adminRouter)
