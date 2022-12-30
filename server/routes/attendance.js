@@ -88,7 +88,6 @@ router.put("/:id",  async (req, res) => {
     notice,
     prenum,
   } = req.body;
-
   // Simple validation
   const originOne = await Attendance.findOne({ id: req.params.id });
 
@@ -99,7 +98,7 @@ router.put("/:id",  async (req, res) => {
       debt_schedule: debt_schedule ? debt_schedule : originOne.debt_schedule,
       id_target: id_target ? id_target : originOne.id_target,
       type: type ? type : originOne.type,
-      isSelfCheck: isSelfCheck ? isSelfCheck : originOne.isSelfCheck,
+      isSelfCheck ,
       id_last_editor: id_last_editor
         ? id_last_editor
         : originOne.id_last_editor,
@@ -109,19 +108,19 @@ router.put("/:id",  async (req, res) => {
       notice: notice ? notice : originOne.notice,
       prenum: prenum ? prenum : originOne.prenum,
     };
-
+ 
     UpdatedAttendance = await Attendance.findOneAndUpdate(
       { id: req.params.id },
       UpdatedAttendance,
       { new: true }
     );
-
     // User not authorised to update post or post not found
     if (!UpdatedAttendance)
       return res.status(401).json({
         success: false,
         message: "Attendance not found or user not authorised",
       });
+
 
     res.json({
       success: true,

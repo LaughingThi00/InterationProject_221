@@ -1385,7 +1385,7 @@ export function CompleteOneAttendanceToday({attendance}) {
       ...One,
       datetime_update: Date().toLocaleString(),
     });
-  };
+  }; 
 
   return (
     <>

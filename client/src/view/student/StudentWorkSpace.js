@@ -48,7 +48,6 @@ const StudentWorkSpace = () => {
     handleShow();
   };
   let idx = 0;
-  console.log(ThisSchedule)
   const Schedule = ThisSchedule
     ? ScheduleList.find((s) => s.id === ThisSchedule)
     : null;
@@ -69,7 +68,7 @@ const StudentWorkSpace = () => {
   };
 
 
-  const myattendance= AttendanceList.find(a=>a.id_target===account.id&&schedulenow.find(s=>s.id===a.id_schedule))
+  let myattendance= AttendanceList.find(a=>a.id_target===account.id&&schedulenow.find(s=>s.id===a.id_schedule))
   let mylasteditor
   if(myattendance){
     if(AdminList.find(element=>element.id===myattendance.id_last_editor)){
@@ -329,6 +328,8 @@ const StudentWorkSpace = () => {
         </Modal.Body>
         <Modal.Footer>
           <div className="GroupButonInspectorClass">
+
+
             {myattendance&&myattendance.isSelfCheck&&<CompleteOneAttendanceToday attendance={myattendance.id} />}
           </div>
           <Button variant="dark" onClick={handleClose}>
